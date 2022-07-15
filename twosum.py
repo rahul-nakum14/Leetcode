@@ -1,3 +1,4 @@
+#Bruteforce Method
 import array as arr
 
 a = arr.array('i',[2,7,11,15])
@@ -13,15 +14,31 @@ def twosum():
 x = twosum()
 print(x)
 
-#Output [0, 1]
+'''Output [0, 1]'''
 
-# less than O(n2) time complexity 
+#Hashmap Method
 
-# target=6
-# sum=0
-# j = []
-# for i in range(len(a)):
-#     sum=target-a[i]
-#     if sum in a:
-#         j.append(i)
-# print(j)      # Failde in case of Input: nums = [3,2,4], target = 6   Output: [1,2]
+import array as arr
+a = arr.array('i',[3,2,4])
+hashmap = {}
+
+def hash():
+    targt=6
+    for i in range(len(a)):
+        comp = targt - a[i]
+        if comp in hashmap:
+            return[hashmap.get(comp),i]    # return[hashmap[comp],i] get values from key
+        else:
+            hashmap[a[i]] = i              # Value , index
+print(hash())
+
+'''Output [1, 2]'''
+
+''' leet code submission
+        for i in range (len(nums)):
+            com = target - nums[i]
+            if com in hashmap:
+                return[hashmap.get(com),i]
+            else:
+                hashmap[nums[i]] = i '''
+   
